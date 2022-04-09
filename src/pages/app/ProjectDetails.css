@@ -1,0 +1,45 @@
+.oneBox{
+    display: flex;
+    flex-direction: row;
+}
+.heading{
+    padding: 30px;
+    background-color: rgb(227, 226, 226);
+    width: 350px;
+    text-align: center;
+    font-size: x-large;
+    font-weight: 500;
+    border-radius: 3px;
+    border: 1px solid black;
+}
+
+.detail{
+    padding: 30px;
+    background-color: rgb(80, 73, 119);
+    width: 600px;
+    font-size: x-large;
+    font-weight: 500;
+    border-radius: 3px;
+    border: 1px solid black;
+    color: white;
+}
+
+#mainh {
+    padding: 10px;
+    font-size: xx-large;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 600;
+    font-family: 'Times New Roman',
+        Times,
+        serif;
+    width: 760px;
+    color:rgb(80, 73, 119);
+    padding-left: 150px;
+}
+
+#maindiv{
+margin: auto;
+padding-left: 200px;
+}
+

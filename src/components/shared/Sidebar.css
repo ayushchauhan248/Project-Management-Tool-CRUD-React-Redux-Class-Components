@@ -1,0 +1,27 @@
+#sidebar {
+  width: 200px;
+  height: 100%;
+  background-color: rgb(80, 73, 119);
+  position: fixed;
+  z-index: 1;
+  top: 50px;
+  left: 0;
+  overflow-x: hidden;
+  border-top: 1px solid white;
+}
+#lli{
+  padding: 10px;
+  color : white;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 700;
+}
+
+.doFlex{
+  display: flex;
+  flex-direction: row;
+}
+
+#llii{
+  padding: 12px;
+  color: white;
+}

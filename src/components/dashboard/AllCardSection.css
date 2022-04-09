@@ -1,0 +1,81 @@
+.every{
+  text-decoration: none;
+  color: black;
+}
+
+#proDiv{
+    display: flex;
+    flex-direction: row; 
+    background-color: rgb(214, 214, 214);
+    padding: 20px;
+    border-bottom: 3px solid white;
+}
+
+#cardButtonSections{
+  padding:10px;
+  display: flex;
+  flex-direction: column;
+  background: rgb(80, 73, 119);
+  width: 150px;
+  min-height: 100px;
+  border-radius: 10px;
+  border: 2px solid rgb(214, 214, 214)
+}
+
+.btndash{
+  background-color: white;
+  border-radius: 7px;
+  border: 2px solid rgb(80, 73, 119);
+  padding: 7px;
+  cursor: pointer;
+  font-size:medium;
+  width: 100%;
+}
+
+.btndash:hover{
+  background-color: rgb(80, 73, 119);
+  border: 2px solid white ;
+  color:white;
+}
+
+.linkClass {
+  margin-top: 15px;
+}
+
+#head{
+  font-size: xx-large;
+  font-weight: 600;
+  font-family: 'Times New Roman', Times, serif;
+  padding:10px;
+  text-align: center;
+  color: rgb(80, 73, 119);
+}
+
+#allcard{
+  z-index: -1;
+  padding-left: 200px;
+}
+
+.create {
+  border: 2px solid black;
+  border-radius: 50%;
+  text-decoration: none;
+  color: black;
+  background-color: rgb(80, 73, 119);
+  font-size: large;
+  text-align: center;
+  width: 25px; 
+  padding: 8px;
+  position: absolute;
+  top: 60px;
+  right: 80px;
+  color:rgb(214, 214, 214);
+  overflow: hidden;
+  position: fixed;
+  cursor: pointer;
+}
+
+.create:hover {
+  background-color: rgb(214, 214, 214);
+  color:rgb(80, 73, 119)
+}

@@ -1,0 +1,16 @@
+#grid-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+
+#grid-container > div {
+  text-align: center;
+}
+
+
+#cont{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}

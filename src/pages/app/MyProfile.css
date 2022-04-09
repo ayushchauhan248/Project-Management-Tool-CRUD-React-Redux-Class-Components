@@ -1,0 +1,67 @@
+#contain{
+  user-select: none;
+  margin-top: 60px;
+  background-color: white;
+  color: #1f1a32;
+  border-radius: 5px;
+  width: 400px;
+  height: 500px;
+  text-align: center;
+  padding-left: 130px;
+}
+#cover-photo{
+  background: white;
+  height: 160px;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+#profile{
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin: 93px 0 0 -175px;
+  border: 1px solid #1f1a32;
+  padding: 7px;
+  background: white;
+}
+#profile-name{
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 180px;
+}
+#about{
+  margin-top: 60px;
+  line-height: 21px;
+}
+.buttn{
+  margin: 30px 0 40px 0;
+}
+#msg-btn, #follow-btn{
+  background: rgb(80, 73, 119);
+  border: 1px solid rgb(80, 73, 119);
+  padding: 10px 25px;
+  color: white;
+  border-radius: 3px;
+  font-family: Montserrat, sans-serif;
+  cursor: pointer;
+}
+#follow-btn{
+  margin-left: 10px;
+  background: transparent;
+  color: rgb(80, 73, 119);
+}
+#follow-btn:hover{
+  color: white;
+  background: rgb(80, 73, 119);
+  transition: .5s;
+}
+#contain i{
+  padding-left: 20px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: .5s;
+}
+#contain i:hover{
+  color: rgb(80, 73, 119);
+}

@@ -1,0 +1,53 @@
+#nav{
+    display: flex;
+    background-color: rgb(80, 73, 119);
+    color: white;
+    height: 50px;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 0;
+    }
+#left{
+display: flex;
+}
+#brand{
+    font-size: xx-large;
+    padding-left: 8px;
+    padding-top: 3px;
+    font-family: 'Times New Roman', Times, serif
+}
+#img{
+    margin-left: 20px;
+    padding: 5px;
+    height: 40px;
+    width: 40px;
+}
+#icon{    
+    height: 32px;
+    width: 32px;
+}
+#llnk {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-bottom: 1px solid white;
+}
+
+#llnk:hover{
+    background-color: rgb(108, 99, 156);
+}
+
+#iconDiv{
+    top:8px;
+    position: absolute;
+    right: 25px;
+    cursor: pointer;
+}
+
+
+#myProfile{
+    color: white;
+}

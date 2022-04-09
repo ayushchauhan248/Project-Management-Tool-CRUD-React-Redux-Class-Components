@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render snapshot  of approute 1`] = `
+<div>
+  <Navbar />
+  <div
+    id="grid-container"
+  >
+    <Sidebar />
+    <div
+      id="cont"
+    >
+      <Route
+        path="/dashboard"
+      >
+        <DashboardPage />
+      </Route>
+      <Route
+        path="/create"
+      >
+        <Connect(CreateProject) />
+      </Route>
+      <Route
+        path="/myprofile"
+      >
+        <Myprofile />
+      </Route>
+      <Route
+        exact={true}
+        path="/project/:id"
+        render={[Function]}
+      />
+      <Route
+        path="/edit/:id"
+      >
+        <Connect(EditPage) />
+      </Route>
+    </div>
+  </div>
+</div>
+`;

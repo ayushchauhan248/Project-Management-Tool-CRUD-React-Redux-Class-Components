@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render snapshot of navbar 1`] = `
+<div
+  id="sidebar"
+>
+  <div
+    id="uul"
+  >
+    <Link
+      className="doFlex"
+      id="llnk"
+      to="/dashboard"
+    >
+      <ImHome
+        id="llii"
+      />
+      <div
+        id="lli"
+      >
+        DASHBOARD
+      </div>
+    </Link>
+    <Link
+      className="doFlex"
+      id="llnk"
+      to="/create"
+    >
+      <MdCreateNewFolder
+        id="llii"
+      />
+      <div
+        id="lli"
+      >
+        CREATE
+      </div>
+    </Link>
+    <Link
+      className="doFlex"
+      id="llnk"
+      to="/"
+    >
+      <RiLogoutBoxFill
+        id="llii"
+      />
+      <div
+        id="lli"
+      >
+        LOGOUT
+      </div>
+    </Link>
+  </div>
+</div>
+`;
