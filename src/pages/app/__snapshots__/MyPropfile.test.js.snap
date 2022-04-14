@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`My Profile tests snapshot testing 1`] = `
+<div
+  id="bd"
+>
+  <div
+    id="contain"
+  >
+    <div
+      id="cover-photo"
+    >
+      <img
+        alt="profileImage"
+        id="profile"
+        src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+      />
+    </div>
+    <span
+      id="profile-name"
+    >
+      Ayush Chauhan
+    </span>
+    <p
+      id="about"
+    >
+      Front-end developer And Back-end developer
+    </p>
+    <button
+      class="buttn"
+      id="msg-btn"
+    >
+      Message
+    </button>
+    <button
+      id="follow-btn"
+    >
+      Follows
+    </button>
+    <div>
+      <i
+        class="fab fa-facebook-f"
+      />
+      <i
+        class="fab fa-instagram"
+      />
+      <i
+        class="fab fa-youtube"
+      />
+      <i
+        class="fab fa-twitter"
+      />
+    </div>
+  </div>
+</div>
+`;

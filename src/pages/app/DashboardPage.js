@@ -1,4 +1,4 @@
-import AllCardSection from "../../components/dashboard/AllCardSection";
+import AllCardSection from "../../components/allCards/index";
 
 import React, { Component } from "react";
 

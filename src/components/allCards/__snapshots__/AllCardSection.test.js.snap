@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`All Card Section tests snapshot testing 1`] = `
+<div
+  id="allcard"
+>
+  <div
+    id="head"
+  >
+    ALL PROJECTS
+  </div>
+  <Link
+    className="create"
+    to="/create"
+  >
+    <BsPlusLg />
+  </Link>
+</div>
+`;
