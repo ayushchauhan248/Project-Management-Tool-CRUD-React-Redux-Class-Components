@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { getOneProjectAction } from "../../redux/actions/project";
 import { connect } from "react-redux";
 import "./ProjectDetails.css";
-
+import * as moment from "moment";
 class ProjectIdPage extends Component {
   constructor(props) {
     super(props);
@@ -26,8 +26,13 @@ class ProjectIdPage extends Component {
           <div className="detail">{this.props.projectone?.one?.technology}</div>
         </div>
         <div className="oneBox">
-          <div className="heading">Deadline</div>
-          <div className="detail">{this.props.projectone?.one?.deadline}</div>
+          <div className="heading">
+            Deadline<span id="format">(DD/MM/YYYY)</span>
+          </div>
+          {/* <div className="detail">{this.props.projectone?.one?.deadline}</div> */}
+          <div className="detail">
+            {moment(this.props.projectone?.one?.deadline).format("DD/MM/YYYY")}
+          </div>
         </div>
         <div className="oneBox">
           <div className="heading">Description</div>

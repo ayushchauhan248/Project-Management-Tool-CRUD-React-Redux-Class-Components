@@ -66,3 +66,18 @@
   border-radius: 100%;
 }
 
+.createClose{
+  position: absolute;
+  top:0px;
+  right:0px;
+}
+
+#deleteNotifi{
+  border: 1px solid rgb(80, 73, 119);
+  background-color: lightblue;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: medium;
+  color:rgb(80, 73, 119);
+  margin-bottom: 10px;
+}

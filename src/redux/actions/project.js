@@ -52,7 +52,9 @@ export const setprojectAction = (data) => async (dispatch) => {
     console.log(err);
   }
 };
+
 export const deleteProjectAction = (id) => async (dispatch) => {
+  console.log("action", id);
   try {
     await axios.delete(`http://localhost:4000/api/projects/${id}`);
     console.log("hello", id);

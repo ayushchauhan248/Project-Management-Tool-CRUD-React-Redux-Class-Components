@@ -1,6 +1,6 @@
 import "./Sidebar.css";
 import { Link } from "react-router-dom";
-import { MdCreateNewFolder } from "react-icons/md";
+// import { MdCreateNewFolder } from "react-icons/md";
 import { ImHome } from "react-icons/im";
 import { RiLogoutBoxFill } from "react-icons/ri";
 
@@ -15,11 +15,11 @@ class Sidebar extends Component {
             <ImHome id="llii"></ImHome>
             <div id="lli">DASHBOARD</div>
           </Link>
-
+          {/* 
           <Link to="/create" id="llnk" className="doFlex">
             <MdCreateNewFolder id="llii"></MdCreateNewFolder>
             <div id="lli">CREATE</div>
-          </Link>
+          </Link> */}
 
           <Link to="/" id="llnk" className="doFlex">
             <RiLogoutBoxFill id="llii"></RiLogoutBoxFill>

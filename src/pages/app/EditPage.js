@@ -5,6 +5,8 @@ import {
   updateProject,
 } from "../../redux/actions/project";
 import "./CreateProject.css";
+import { Prompt } from "react-router";
+import * as moment from "moment";
 
 class EditPage extends Component {
   constructor(props) {
@@ -50,13 +52,25 @@ class EditPage extends Component {
     }, 1000);
   };
 
-  testCheck() {
-    return 40;
-  }
-
   render() {
+    const { title, technology, deadline, description } = this.state;
+    const enabled =
+      title === this.props.projectone?.one?.title &&
+      technology === this.props.projectone?.one?.technology &&
+      deadline === this.props.projectone?.one?.deadline &&
+      description === this.props.projectone?.one?.description;
+    console.log(
+      "date",
+      this.state.deadline,
+      new Date(this.state.deadline).getDate()
+    );
+    const newCustomDate = new Date(this.state.deadline);
     return (
       <div className="creatediv">
+        <Prompt
+          when={true}
+          message="You have unsaved changes, are you sure you want to leave?"
+        />
         <div id="headi">EDIT PROJECT</div>
         <form onSubmit={this.handleSubmit} id="formc">
           <div id="two">
@@ -84,13 +98,13 @@ class EditPage extends Component {
           </div>
           <div id="three">
             <input
-              type="text"
+              type="date"
               id="deadline"
               name="deadline"
               placeholder="Deadline "
               className="title"
               autoComplete="off"
-              value={this.state.deadline}
+              value={newCustomDate}
               onChange={this.handleChange}
             />
             <textarea
@@ -104,9 +118,14 @@ class EditPage extends Component {
               onChange={this.handleChange}
             />
           </div>
-          <div id="four">
-            <button type="submit" id="subBut">
-              Submit
+          <div>
+            <button
+              type="submit"
+              id="subBut"
+              disabled={enabled}
+              title={enabled ? "No change in any data" : ""}
+            >
+              Update
             </button>
           </div>
         </form>

@@ -20,10 +20,10 @@ export default function projectItems(state = intialState, action) {
         one: action.data,
       };
     case ActionTypes.DLT_PROJECT:
+      const dlt = state.projectData.filter((item) => item._id !== action.data);
       return {
-        projectData: state.projectData.filter(
-          (item) => item.id !== action.data
-        ),
+        ...state.projectData,
+        projectData: dlt,
       };
     case ActionTypes.UPDATE_PROJECT:
       return {
