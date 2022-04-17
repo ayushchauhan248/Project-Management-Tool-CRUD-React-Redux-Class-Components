@@ -11,6 +11,7 @@ class CreateDialog extends Component {
       technology: "",
       deadline: new Date(),
       description: "",
+      errors: {},
     };
     this.emailInputRef = createRef();
   }
@@ -21,23 +22,67 @@ class CreateDialog extends Component {
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
+    this.validateForm();
   };
 
-  handleSubmit = (e) => {
-    const project = {
-      title: this.state.title,
-      technology: this.state.technology,
-      deadline: this.state.deadline,
-      description: this.state.description,
-    };
+  validateForm() {
+    const { title, technology, description } = this.state;
+    let errors = {};
+    let formIsValid = true;
+    if (title.length < 3) {
+      formIsValid = false;
+      errors["titleErr"] = "*Title must be at least 3 characters.";
+    }
 
+    if (technology.length < 3) {
+      formIsValid = false;
+      errors["technologyErr"] = "*Technology must be at least 3 characters.";
+    }
+
+    if (description.length < 20) {
+      formIsValid = false;
+      errors["descriptionErr"] = "*Description must be at least 20 characters.";
+    }
+
+    this.setState({
+      errors: errors,
+    });
+    return formIsValid;
+  }
+
+  handleSubmit = (e) => {
     e.preventDefault();
-    this.props.setprojectAction(project);
-    window.location.href = "/dashboard";
-    alert("Your Project Created Successfully");
+    if (this.validateForm()) {
+      const project = {
+        title: this.state.title,
+        technology: this.state.technology,
+        deadline: this.state.deadline,
+        description: this.state.description,
+      };
+      this.props.setprojectAction(project);
+      window.location.href = "/dashboard";
+      alert("Your Project Created Successfully");
+    }
+  };
+
+  disablePastDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+  };
+
+  getCurrentDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
   };
 
   render() {
+    const { titleErr, technologyErr, descriptionErr } = this.state.errors;
     const { title, technology, description } = this.state;
     const enabled =
       title.length > 0 && technology.length > 0 && description.length > 0;
@@ -56,6 +101,7 @@ class CreateDialog extends Component {
               autoComplete="off"
               ref={this.emailInputRef}
             />
+            <div className="errorMsg">{titleErr}</div>
             <input
               type="text"
               id="techno"
@@ -65,6 +111,7 @@ class CreateDialog extends Component {
               autoComplete="off"
               onChange={this.handleChange}
             />
+            <div className="errorMsg">{technologyErr}</div>
           </div>
           <div id="three">
             <input
@@ -74,6 +121,8 @@ class CreateDialog extends Component {
               placeholder="Deadline "
               className="title"
               autoComplete="off"
+              defaultValue={this.getCurrentDate()}
+              min={this.disablePastDate()}
               onChange={this.handleChange}
             />
             <textarea
@@ -85,6 +134,7 @@ class CreateDialog extends Component {
               autoComplete="off"
               onChange={this.handleChange}
             />
+            <div className="errorMsg">{descriptionErr}</div>
           </div>
           <div id="four">
             <button

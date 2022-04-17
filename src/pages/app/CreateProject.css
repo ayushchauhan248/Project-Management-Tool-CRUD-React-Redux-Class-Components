@@ -1,11 +1,11 @@
 .title{
   width: 400px;
-  padding: 12px 30px;
-  margin: 8px;
+  padding: 10px 30px;
   box-sizing: border-box;
   border-radius: 4px;
   border: 2px solid rgb(80, 73, 119);
   align-items: center;
+  margin: 10px;
 }
 
 #headi{
@@ -74,4 +74,8 @@ padding-left: 130px;
 
 .creatediv{
 	padding-left: 250px;
+}
+.errorMsg {
+	color: #cc0000;
+	font-size: small;
 }

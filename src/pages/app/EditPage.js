@@ -6,15 +6,14 @@ import {
 } from "../../redux/actions/project";
 import "./CreateProject.css";
 import { Prompt } from "react-router";
-import * as moment from "moment";
-
 class EditPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       technology: "",
-      deadline: "",
+      // deadline: moment(new Date()).format("YYYY-MM-DD"),
+      deadline: new Date(),
       description: "",
     };
     this.emailInputRef = createRef();
@@ -26,7 +25,7 @@ class EditPage extends Component {
     this.setState({
       title: this.props.projectone?.one?.title,
       technology: this.props.projectone?.one?.technology,
-      deadline: this.props.projectone?.one?.deadline,
+      deadline: new Date(this.props.projectone?.one?.deadline),
       description: this.props.projectone?.one?.description,
     });
   }
@@ -52,23 +51,31 @@ class EditPage extends Component {
     }, 1000);
   };
 
+  giveCurrentDate = () => {
+    const today = new Date(this.state.deadline);
+    const dd = String(today.getDate()).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+  };
+
+  disablePastDate = () => {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, "0");
+    const mm = String(today.getMonth() + 1).padStart(2, "0");
+    const yyyy = today.getFullYear();
+    return yyyy + "-" + mm + "-" + dd;
+  };
   render() {
-    const { title, technology, deadline, description } = this.state;
+    const { title, technology, description } = this.state;
     const enabled =
       title === this.props.projectone?.one?.title &&
       technology === this.props.projectone?.one?.technology &&
-      deadline === this.props.projectone?.one?.deadline &&
       description === this.props.projectone?.one?.description;
-    console.log(
-      "date",
-      this.state.deadline,
-      new Date(this.state.deadline).getDate()
-    );
-    const newCustomDate = new Date(this.state.deadline);
     return (
       <div className="creatediv">
         <Prompt
-          when={true}
+          when={!enabled}
           message="You have unsaved changes, are you sure you want to leave?"
         />
         <div id="headi">EDIT PROJECT</div>
@@ -104,7 +111,8 @@ class EditPage extends Component {
               placeholder="Deadline "
               className="title"
               autoComplete="off"
-              value={newCustomDate}
+              min={this.disablePastDate()}
+              value={this.giveCurrentDate()}
               onChange={this.handleChange}
             />
             <textarea
