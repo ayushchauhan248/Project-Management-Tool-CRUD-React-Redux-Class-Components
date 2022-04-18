@@ -85,3 +85,23 @@ label{
 #lnk:hover{
 	text-decoration: underline;
 }
+.spinner{
+	animation: spin infinite 1s linear;
+	height: 30px;
+	width: 30px;
+}
+
+.spinnerDiv{
+	padding-top: 20px;
+	padding-left: 150px;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

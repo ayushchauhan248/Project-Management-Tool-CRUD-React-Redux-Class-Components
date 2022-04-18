@@ -2,6 +2,7 @@ import "./AuthPage.css";
 import { Link } from "react-router-dom";
 import React, { Component } from "react";
 import axios from "axios";
+import { ImSpinner10 } from "react-icons/im";
 class SignupPage extends Component {
   constructor(props) {
     super(props);
@@ -9,6 +10,7 @@ class SignupPage extends Component {
       name: "",
       email: "",
       password: "",
+      spinner: false,
     };
   }
 
@@ -23,11 +25,15 @@ class SignupPage extends Component {
       email: this.state.email,
       password: this.state.password,
     };
+    this.setState({ spinner: true });
     console.log(createUser);
     const url = "http://localhost:4000/api/users/signup";
     const response = await axios.post(url, createUser);
     if (response.status === 200) {
-      setTimeout(() => (window.location.href = "/login"), 2000);
+      setTimeout(() => {
+        this.setState({ spinner: false });
+        window.location.href = "/login";
+      }, 3000);
     } else {
       console.log("error");
     }
@@ -72,6 +78,11 @@ class SignupPage extends Component {
               <Link to="/login" id="lnk">
                 Have An Account ?
               </Link>
+              <div className="spinnerDiv">
+                {this.state.spinner && (
+                  <ImSpinner10 icon="spin" className="spinner"></ImSpinner10>
+                )}
+              </div>
             </form>
           </div>
         </div>
