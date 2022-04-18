@@ -31,7 +31,10 @@ export const getOneProjectAction = (id) => {
   return async (dispatch) => {
     try {
       const resp = await axios.get(
-        `http://localhost:4000/api/projects/one/${id}`
+        `http://localhost:4000/api/projects/one/${id}`,
+        {
+          headers: { "Content-Type": "application/json", Authorization: token },
+        }
       );
       dispatch({
         type: ActionTypes.GETONE_PROJECT,
@@ -45,7 +48,9 @@ export const getOneProjectAction = (id) => {
 
 export const setprojectAction = (data) => async (dispatch) => {
   try {
-    await axios.post("http://localhost:4000/api/projects/create", data);
+    await axios.post("http://localhost:4000/api/projects/create", data, {
+      headers: { "Content-Type": "application/json", Authorization: token },
+    });
     console.log("in action", data);
     dispatch({
       type: ActionTypes.SET_PROJECT,
@@ -57,10 +62,10 @@ export const setprojectAction = (data) => async (dispatch) => {
 };
 
 export const deleteProjectAction = (id) => async (dispatch) => {
-  console.log("action", id);
   try {
-    await axios.delete(`http://localhost:4000/api/projects/${id}`);
-    console.log("hello", id);
+    await axios.delete(`http://localhost:4000/api/projects/${id}`, {
+      headers: { "Content-Type": "application/json", Authorization: token },
+    });
     dispatch({
       type: ActionTypes.DLT_PROJECT,
       data: id,
@@ -72,7 +77,9 @@ export const deleteProjectAction = (id) => async (dispatch) => {
 
 export const updateProject = (data) => async (dispatch) => {
   try {
-    await axios.put(`http://localhost:4000/api/projects/${data.id}`, data);
+    await axios.put(`http://localhost:4000/api/projects/${data.id}`, data, {
+      headers: { "Content-Type": "application/json", Authorization: token },
+    });
     console.log(data);
     dispatch({
       type: ActionTypes.UPDATE_PROJECT,

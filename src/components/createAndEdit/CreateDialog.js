@@ -23,7 +23,7 @@ class CreateDialog extends Component {
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
-    this.validateForm();
+    // this.validateForm();
   };
 
   validateForm() {
