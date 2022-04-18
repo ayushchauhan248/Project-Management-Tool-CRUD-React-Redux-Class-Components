@@ -67,7 +67,7 @@ class SignupPage extends Component {
                 onChange={this.handleChange}
               />
               <button id="btm" type="submit">
-                Login
+                Signup
               </button>
               <Link to="/login" id="lnk">
                 Have An Account ?

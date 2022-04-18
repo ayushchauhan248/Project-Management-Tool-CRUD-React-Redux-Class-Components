@@ -8,12 +8,15 @@ export const ActionTypes = {
   UPDATE_PROJECT: "UPDATE_PROJECT",
 };
 
-// Action - will send the data from any component/api to redux store
+const token = localStorage.getItem("AUTH_TOKEN");
 
+// Action - will send the data from any component/api to redux store
 export const getProjectAction = () => {
   return async (dispatch) => {
     try {
-      const res = await axios.get("http://localhost:4000/api/projects");
+      const res = await axios.get("http://localhost:4000/api/projects", {
+        headers: { "Content-Type": "application/json", Authorization: token },
+      });
       dispatch({
         type: ActionTypes.GET_PROJECTS,
         data: res.data,

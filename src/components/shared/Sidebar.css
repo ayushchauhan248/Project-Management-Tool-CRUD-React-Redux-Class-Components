@@ -25,3 +25,9 @@
   padding: 12px;
   color: white;
 }
+
+.buttonLogout{
+  background-color: rgb(80, 73, 119);
+  width: 100%;
+  border-right: 1px solid white;
+}

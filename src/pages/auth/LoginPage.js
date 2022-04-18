@@ -22,7 +22,7 @@ class LoginPage extends Component {
     };
     const url = "http://localhost:4000/api/users/login";
     const response = await axios.post(url, user);
-    if (response.status === 200) {
+    if (response.data.token !== undefined && response.status === 200) {
       localStorage.setItem("AUTH_TOKEN", response.data.token);
       //   console.log(response);
       setTimeout(() => (window.location.href = "/dashboard"), 2000);

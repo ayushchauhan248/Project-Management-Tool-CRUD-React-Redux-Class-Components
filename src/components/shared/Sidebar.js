@@ -7,6 +7,10 @@ import { RiLogoutBoxFill } from "react-icons/ri";
 import React, { Component } from "react";
 
 class Sidebar extends Component {
+  logout = () => {
+    localStorage.removeItem("AUTH_TOKEN");
+    window.location.href = "/login";
+  };
   render() {
     return (
       <div id="sidebar">
@@ -21,10 +25,14 @@ class Sidebar extends Component {
             <div id="lli">CREATE</div>
           </Link> */}
 
-          <Link to="/" id="llnk" className="doFlex">
+          <button
+            id="llnk"
+            className="doFlex buttonLogout"
+            onClick={this.logout}
+          >
             <RiLogoutBoxFill id="llii"></RiLogoutBoxFill>
             <div id="lli">LOGOUT</div>
-          </Link>
+          </button>
         </div>
       </div>
     );

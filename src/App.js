@@ -22,6 +22,7 @@ class App extends Component {
   // chng = () => {
   //   this.setState({ color: "red" });
   // };
+
   render() {
     return (
       <BrowserRouter>
@@ -31,7 +32,11 @@ class App extends Component {
           </Route>
 
           <Route path={["/login", "/signup"]} exact>
-            <AuthRoute></AuthRoute>
+            {localStorage.getItem("AUTH_TOKEN") ? (
+              <Redirect to="/dashboard"></Redirect>
+            ) : (
+              <AuthRoute></AuthRoute>
+            )}
           </Route>
 
           <Route
@@ -44,7 +49,11 @@ class App extends Component {
               "/edit/:id",
             ]}
           >
-            <AppRoute></AppRoute>
+            {localStorage.getItem("AUTH_TOKEN") ? (
+              <AppRoute></AppRoute>
+            ) : (
+              <Redirect to="/login"></Redirect>
+            )}
           </Route>
 
           <Route>
