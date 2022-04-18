@@ -34,7 +34,7 @@ label{
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
-#inpt{
+.inpt{
 	width: 60%;
 	height: 20px;
 	background: white;

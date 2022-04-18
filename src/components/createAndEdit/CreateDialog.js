@@ -13,6 +13,7 @@ class CreateDialog extends Component {
       description: "",
       errors: {},
     };
+
     this.emailInputRef = createRef();
   }
 
