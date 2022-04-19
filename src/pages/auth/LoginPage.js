@@ -10,6 +10,7 @@ class LoginPage extends Component {
       email: "",
       password: "",
       spinner: false,
+      invalidCred: false,
     };
   }
   handleChange = (e) => {
@@ -32,6 +33,15 @@ class LoginPage extends Component {
         window.location.href = "/dashboard";
       }, 3000);
     } else {
+      this.setState({ spinner: true });
+      setTimeout(() => {
+        this.setState({ invalidCred: true });
+      }, 2000);
+      setTimeout(() => {
+        this.setState({ spinner: false });
+        this.setState({ invalidCred: false });
+        window.location.href = "/login";
+      }, 3000);
       console.log(response.data);
     }
   };
@@ -39,6 +49,11 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="bdy">
+        <div className="errorDiv">
+          {this.state.invalidCred && (
+            <h1 className="invalidCred"> INVALID CREDENTIALS !!! </h1>
+          )}
+        </div>
         <div className="main">
           <label for="chk" aria-hidden="true">
             Login
