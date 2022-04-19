@@ -2,7 +2,7 @@ import "../../pages/app/CreateProject.css";
 import { Component, createRef } from "react";
 import { setprojectAction } from "../../redux/actions/project";
 import { connect } from "react-redux";
-
+import { ImSpinner10 } from "react-icons/im";
 class CreateDialog extends Component {
   constructor(props) {
     super(props);
@@ -12,6 +12,7 @@ class CreateDialog extends Component {
       deadline: new Date(),
       description: "",
       errors: {},
+      spinner: false,
     };
 
     this.emailInputRef = createRef();
@@ -60,9 +61,13 @@ class CreateDialog extends Component {
         deadline: this.state.deadline,
         description: this.state.description,
       };
+      this.setState({ spinner: true });
       this.props.setprojectAction(project);
-      window.location.href = "/dashboard";
-      alert("Your Project Created Successfully");
+      setTimeout(() => {
+        this.setState({ spinner: false });
+        window.location.href = "/dashboard";
+        alert("Your Project Created Successfully");
+      }, 3000);
     }
   };
 
@@ -146,6 +151,11 @@ class CreateDialog extends Component {
             >
               Submit
             </button>
+          </div>
+          <div id="createSpinnerDiv">
+            {this.state.spinner && (
+              <ImSpinner10 icon="spin" className="spinner"></ImSpinner10>
+            )}
           </div>
         </form>
       </div>

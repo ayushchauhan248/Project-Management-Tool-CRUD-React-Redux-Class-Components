@@ -67,7 +67,7 @@ class LoginPage extends Component {
               <Link to="/signup" id="lnk">
                 Create Account ?
               </Link>
-              <div className="spinnerDiv">
+              <div id="spinnerDiv">
                 {this.state.spinner && (
                   <ImSpinner10 icon="spin" className="spinner"></ImSpinner10>
                 )}

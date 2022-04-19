@@ -14,7 +14,6 @@
 	background-color: rgb(227, 225, 225);
 	overflow: hidden;
 	border-radius: 10px;
-	/* box-shadow: 5px 20px 50px rgb(227, 225, 225); */
 }
 #chk{
 	display: none;
@@ -85,13 +84,14 @@ label{
 #lnk:hover{
 	text-decoration: underline;
 }
+
 .spinner{
 	animation: spin infinite 1s linear;
 	height: 30px;
 	width: 30px;
 }
 
-.spinnerDiv{
+#spinnerDiv{
 	padding-top: 20px;
 	padding-left: 150px;
 }

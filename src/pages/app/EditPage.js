@@ -6,15 +6,16 @@ import {
 } from "../../redux/actions/project";
 import "./CreateProject.css";
 import { Prompt } from "react-router";
+import { ImSpinner10 } from "react-icons/im";
 class EditPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "",
       technology: "",
-      // deadline: moment(new Date()).format("YYYY-MM-DD"),
       deadline: new Date(),
       description: "",
+      spinner: false,
     };
     this.emailInputRef = createRef();
   }
@@ -44,11 +45,13 @@ class EditPage extends Component {
       description: this.state.description,
     };
     e.preventDefault();
+    this.setState({ spinner: true });
     this.props.updateProject(project);
     setTimeout(() => {
+      this.setState({ spinner: false });
       window.location = "/dashboard";
       alert("Your Project Is Updated");
-    }, 1000);
+    }, 3000);
   };
 
   giveCurrentDate = () => {
@@ -135,6 +138,11 @@ class EditPage extends Component {
             >
               Update
             </button>
+          </div>
+          <div id="editSpinnerDiv">
+            {this.state.spinner && (
+              <ImSpinner10 icon="spin" className="spinner"></ImSpinner10>
+            )}
           </div>
         </form>
       </div>
