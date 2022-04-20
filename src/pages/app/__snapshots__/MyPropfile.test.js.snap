@@ -18,14 +18,10 @@ exports[`My Profile tests snapshot testing 1`] = `
     </div>
     <span
       id="profile-name"
-    >
-      Ayush Chauhan
-    </span>
+    />
     <p
       id="about"
-    >
-      Front-end developer And Back-end developer
-    </p>
+    />
     <button
       class="buttn"
       id="msg-btn"

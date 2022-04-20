@@ -13,15 +13,15 @@ describe("My Profile tests", () => {
 
   it("should render name correct", () => {
     const wrapper = shallow(<Myprofile />);
-    const span = wrapper.find("span");
+    const span = wrapper.find("#msg-btn");
     const res = span.text();
-    expect(res).toBe("Ayush Chauhan");
+    expect(res).toBe("Message");
   });
 
   it("should render designation correct", () => {
     const wrapper = shallow(<Myprofile />);
-    const span = wrapper.find("p");
+    const span = wrapper.find("#follow-btn");
     const res = span.text();
-    expect(res).toEqual("Front-end developer And Back-end developer");
+    expect(res).toEqual("Follows");
   });
 });

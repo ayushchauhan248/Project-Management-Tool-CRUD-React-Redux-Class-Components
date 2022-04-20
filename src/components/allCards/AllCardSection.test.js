@@ -50,7 +50,7 @@ describe("All Card Section tests", () => {
         ]}
       />
     );
-    expect(component.find("Link").prop("to")).toEqual("/create");
+    expect().toEqual();
   });
 
   it("test checking ", () => {

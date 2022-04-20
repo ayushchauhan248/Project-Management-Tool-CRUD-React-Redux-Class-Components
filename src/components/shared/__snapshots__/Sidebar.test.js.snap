@@ -21,24 +21,10 @@ exports[`should render snapshot of navbar 1`] = `
         DASHBOARD
       </div>
     </Link>
-    <Link
-      className="doFlex"
+    <button
+      className="doFlex buttonLogout"
       id="llnk"
-      to="/create"
-    >
-      <MdCreateNewFolder
-        id="llii"
-      />
-      <div
-        id="lli"
-      >
-        CREATE
-      </div>
-    </Link>
-    <Link
-      className="doFlex"
-      id="llnk"
-      to="/"
+      onClick={[Function]}
     >
       <RiLogoutBoxFill
         id="llii"
@@ -48,7 +34,7 @@ exports[`should render snapshot of navbar 1`] = `
       >
         LOGOUT
       </div>
-    </Link>
+    </button>
   </div>
 </div>
 `;
