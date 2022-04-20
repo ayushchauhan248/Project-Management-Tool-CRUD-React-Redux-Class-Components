@@ -24,15 +24,18 @@ class CreateDialog extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: this.removeExtraSpace(e.target.value) });
     // this.validateForm();
   };
+
+  removeExtraSpace = (s) => s.trim().split(/ +/).join(" ");
 
   validateForm() {
     const { title, technology, description } = this.state;
     let errors = {};
     let formIsValid = true;
     if (title.length < 3) {
+      //trim()
       formIsValid = false;
       errors["titleErr"] = "*Title must be at least 3 characters.";
     }

@@ -6,5 +6,6 @@ configure({ adapter: new Adapter() });
 
 it("should render snapshot of navbar", () => {
   const component = shallow(<Navbar />);
+  console.log(component);
   expect(component).toMatchSnapshot();
 });

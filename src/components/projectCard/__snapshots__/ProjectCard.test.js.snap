@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Project tests snapshot testing 1`] = `
+<div
+  class="card"
+>
+  <p
+    class="card__exit"
+  >
+    <i
+      class="fas fa-times"
+    >
+      Title -
+    </i>
+  </p>
+  <div
+    class="card__icon"
+  >
+    <i
+      class="fas fa-bolt"
+    >
+      HELLO
+    </i>
+  </div>
+  <p
+    class="card__exit"
+  >
+    <i
+      class="fas fa-times"
+    >
+      Technology -
+    </i>
+  </p>
+  <div
+    class="card__icon"
+  >
+    <i
+      class="fas fa-bolt"
+    >
+      HIII
+    </i>
+  </div>
+</div>
+`;
