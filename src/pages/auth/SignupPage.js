@@ -29,11 +29,12 @@ class SignupPage extends Component {
     console.log(createUser);
     const url = "http://localhost:4000/api/users/signup";
     const response = await axios.post(url, createUser);
-    if (response.status === 200) {
+    if ((response.data.token !== undefined && response.status) === 200) {
+      localStorage.setItem("AUTH_TOKEN", response.data.token);
       setTimeout(() => {
         this.setState({ spinner: false });
-        window.location.href = "/login";
-      }, 3000);
+        window.location.href = "/dashboard";
+      }, 1000);
     } else {
       console.log("error");
     }

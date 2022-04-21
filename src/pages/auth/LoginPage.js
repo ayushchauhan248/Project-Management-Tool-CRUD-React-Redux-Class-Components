@@ -3,6 +3,12 @@ import "./AuthPage.css";
 import React, { Component } from "react";
 import axios from "axios";
 import { ImSpinner10 } from "react-icons/im";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 class LoginPage extends Component {
   constructor(props) {
     super(props);
@@ -29,19 +35,18 @@ class LoginPage extends Component {
       this.setState({ spinner: true });
       localStorage.setItem("AUTH_TOKEN", response.data.token);
       setTimeout(() => {
-        this.setState({ spinner: false });
         window.location.href = "/dashboard";
-      }, 3000);
+      }, 1000);
     } else {
       this.setState({ spinner: true });
       setTimeout(() => {
         this.setState({ invalidCred: true });
-      }, 2000);
+      }, 1000);
       setTimeout(() => {
         this.setState({ spinner: false });
         this.setState({ invalidCred: false });
         window.location.href = "/login";
-      }, 3000);
+      }, 2000);
       console.log(response.data);
     }
   };
@@ -49,11 +54,6 @@ class LoginPage extends Component {
   render() {
     return (
       <div className="bdy">
-        <div className="errorDiv">
-          {this.state.invalidCred && (
-            <h1 className="invalidCred"> INVALID CREDENTIALS !!! </h1>
-          )}
-        </div>
         <div className="main">
           <label for="chk" aria-hidden="true">
             Login
@@ -88,6 +88,11 @@ class LoginPage extends Component {
                 )}
               </div>
             </form>
+            <Snackbar open={this.state.invalidCred} autoHideDuration={3000}>
+              <Alert severity="error" sx={{ width: "100%" }}>
+                INVALID CREDENTIALS . TRY AGAIN !
+              </Alert>
+            </Snackbar>
           </div>
         </div>
       </div>

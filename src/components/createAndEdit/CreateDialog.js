@@ -1,9 +1,15 @@
 import "../../pages/app/CreateProject.css";
+import * as React from "react";
 import { Component, createRef } from "react";
 import { setprojectAction } from "../../redux/actions/project";
 import { connect } from "react-redux";
 import { ImSpinner10 } from "react-icons/im";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 class CreateDialog extends Component {
   constructor(props) {
     super(props);
@@ -14,6 +20,7 @@ class CreateDialog extends Component {
       description: "",
       errors: {},
       spinner: false,
+      created: false,
     };
 
     this.emailInputRef = createRef();
@@ -24,18 +31,15 @@ class CreateDialog extends Component {
   }
 
   handleChange = (e) => {
-    this.setState({ [e.target.name]: this.removeExtraSpace(e.target.value) });
-    // this.validateForm();
+    this.setState({ [e.target.name]: e.target.value });
+    this.validateForm();
   };
-
-  removeExtraSpace = (s) => s.trim().split(/ +/).join(" ");
 
   validateForm() {
     const { title, technology, description } = this.state;
     let errors = {};
     let formIsValid = true;
-    if (title.length < 3) {
-      //trim()
+    if (title.trim().length < 3) {
       formIsValid = false;
       errors["titleErr"] = "*Title must be at least 3 characters.";
     }
@@ -65,13 +69,11 @@ class CreateDialog extends Component {
         deadline: this.state.deadline,
         description: this.state.description,
       };
-      this.setState({ spinner: true });
+      this.setState({ spinner: true, created: true });
       this.props.setprojectAction(project);
       setTimeout(() => {
-        this.setState({ spinner: false });
         window.location.href = "/dashboard";
-        alert("Your Project Created Successfully");
-      }, 3000);
+      }, 2000);
     }
   };
 
@@ -82,15 +84,6 @@ class CreateDialog extends Component {
     const yyyy = today.getFullYear();
     return yyyy + "-" + mm + "-" + dd;
   };
-
-  getCurrentDate = () => {
-    const today = new Date();
-    const dd = String(today.getDate()).padStart(2, "0");
-    const mm = String(today.getMonth() + 1).padStart(2, "0");
-    const yyyy = today.getFullYear();
-    return yyyy + "-" + mm + "-" + dd;
-  };
-
   render() {
     const { titleErr, technologyErr, descriptionErr } = this.state.errors;
     const { title, technology, description } = this.state;
@@ -131,7 +124,6 @@ class CreateDialog extends Component {
               placeholder="Deadline "
               className="title"
               autoComplete="off"
-              defaultValue={this.getCurrentDate()}
               min={this.disablePastDate()}
               onChange={this.handleChange}
             />
@@ -162,6 +154,11 @@ class CreateDialog extends Component {
             )}
           </div>
         </form>
+        <Snackbar open={this.state.created} autoHideDuration={2000}>
+          <Alert severity="info" sx={{ width: "100%" }}>
+            Project is a created successfully !
+          </Alert>
+        </Snackbar>
       </div>
     );
   }

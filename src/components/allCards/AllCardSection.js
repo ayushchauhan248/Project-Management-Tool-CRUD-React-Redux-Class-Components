@@ -1,4 +1,5 @@
 import { Component } from "react";
+import * as React from "react";
 import ProjectCard from "../projectCard/ProjectCard";
 import "./AllCardSection.css";
 import { Link } from "react-router-dom";
@@ -12,7 +13,12 @@ import "../../pages/app/CreateProject.css";
 import CreateDialog from "../createAndEdit/CreateDialog";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 class AllCardSection extends Component {
   constructor(props) {
     super(props);
@@ -89,9 +95,11 @@ class AllCardSection extends Component {
             </Button>
           </DialogActions>
         </Dialog>
-        {this.state.deleteCheck && (
-          <div id="deleteNotifi">NOTIFICATION : Project is deleted</div>
-        )}
+        <Snackbar open={this.state.deleteCheck} autoHideDuration={3000}>
+          <Alert severity="info" sx={{ width: "100%" }}>
+            Project is a deleted successfully !
+          </Alert>
+        </Snackbar>
         {this.props.projects.projectData?.reverse().map((res) => {
           return (
             <div id="proDiv">

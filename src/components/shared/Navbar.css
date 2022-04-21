@@ -37,16 +37,29 @@ display: flex;
 }
 
 #llnk:hover{
-    background-color: rgb(108, 99, 156);
+    background-color: rgb(80, 73, 119);
 }
 
 #iconDiv{
-    top:8px;
+    top: 10px;
+    position: absolute;
+    right: 120px;
+    cursor: pointer;
+}
+
+#buttonDiv{
+    top:10px;
     position: absolute;
     right: 25px;
     cursor: pointer;
 }
-
+#username-div{
+    font-size: large;
+    font-weight: 600;
+    top:12px;
+    position: absolute;
+    right: 160px;
+}
 
 #myProfile{
     color: white;

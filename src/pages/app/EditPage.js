@@ -48,7 +48,7 @@ class EditPage extends Component {
     this.setState({ spinner: true });
     this.props.updateProject(project);
     setTimeout(() => {
-      this.setState({ spinner: false });
+      // this.setState({ spinner: false });
       window.location = "/dashboard";
       alert("Your Project Is Updated");
     }, 3000);
@@ -70,11 +70,12 @@ class EditPage extends Component {
     return yyyy + "-" + mm + "-" + dd;
   };
   render() {
-    const { title, technology, description } = this.state;
+    const { title, technology, description, deadline } = this.state;
     const enabled =
       title === this.props.projectone?.one?.title &&
       technology === this.props.projectone?.one?.technology &&
-      description === this.props.projectone?.one?.description;
+      description === this.props.projectone?.one?.description &&
+      deadline === this.props.projectone?.one?.deadline;
     return (
       <div className="creatediv">
         <Prompt
