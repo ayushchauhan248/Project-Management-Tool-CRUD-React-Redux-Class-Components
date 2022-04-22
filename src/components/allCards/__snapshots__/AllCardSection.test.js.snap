@@ -106,10 +106,10 @@ exports[`All Card Section tests snapshot testing 1`] = `
             },
             "mode": "light",
             "primary": Object {
-              "contrastText": "#fff",
-              "dark": "#1565c0",
-              "light": "#42a5f5",
-              "main": "#1976d2",
+              "contrastText": "rgba(0, 0, 0, 0.87)",
+              "dark": "rgb(178, 178, 178)",
+              "light": "rgb(255, 255, 255)",
+              "main": "rgb(255, 255, 255)",
             },
             "secondary": Object {
               "contrastText": "#fff",
@@ -310,20 +310,24 @@ exports[`All Card Section tests snapshot testing 1`] = `
       </ForwardRef(Fab)>
     </ThemeProvider>
   </div>
-  <ForwardRef(Dialog)
-    maxHeight="xl"
-    maxWidth="xl"
+  <Connect(CreateDialog)
+    close={[Function]}
+    open={false}
+  />
+  <ForwardRef(Snackbar)
+    autoHideDuration={3000}
     open={false}
   >
-    <Connect(CreateDialog) />
-    <ForwardRef(DialogActions)>
-      <ForwardRef(Button)
-        autoFocus={true}
-        onClick={[Function]}
-      >
-        Cancel
-      </ForwardRef(Button)>
-    </ForwardRef(DialogActions)>
-  </ForwardRef(Dialog)>
+    <ForwardRef(Alert)
+      severity="info"
+      sx={
+        Object {
+          "width": "100%",
+        }
+      }
+    >
+      Project is a deleted successfully !
+    </ForwardRef(Alert)>
+  </ForwardRef(Snackbar)>
 </div>
 `;

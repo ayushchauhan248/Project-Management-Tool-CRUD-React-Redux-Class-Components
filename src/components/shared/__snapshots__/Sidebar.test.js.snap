@@ -21,20 +21,6 @@ exports[`should render snapshot of navbar 1`] = `
         DASHBOARD
       </div>
     </Link>
-    <button
-      className="doFlex buttonLogout"
-      id="llnk"
-      onClick={[Function]}
-    >
-      <RiLogoutBoxFill
-        id="llii"
-      />
-      <div
-        id="lli"
-      >
-        LOGOUT
-      </div>
-    </button>
   </div>
 </div>
 `;
