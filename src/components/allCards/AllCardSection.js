@@ -8,11 +8,8 @@ import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "../../theme";
-import Dialog from "@mui/material/Dialog";
 import "../../pages/app/CreateProject.css";
 import CreateDialog from "../createAndEdit/CreateDialog";
-import DialogActions from "@mui/material/DialogActions";
-import Button from "@mui/material/Button";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 
@@ -45,16 +42,16 @@ class AllCardSection extends Component {
     };
   };
 
-  handleClickOpenCreate = () => {
+  handleOpenCreate = () => {
     this.setState({ createDailog: true });
-  };
-
-  handleClickOpenEdit = () => {
-    this.setState({ editDailog: true });
   };
 
   handleCloseCreate = () => {
     this.setState({ createDailog: false });
+  };
+
+  handleOpenEdit = () => {
+    this.setState({ editDailog: true });
   };
 
   handleCloseEdit = () => {
@@ -70,31 +67,16 @@ class AllCardSection extends Component {
             <Fab
               color="secondary"
               aria-label="add"
-              onClick={this.handleClickOpenCreate}
+              onClick={this.handleOpenCreate}
             >
               <AddIcon />
             </Fab>
           </ThemeProvider>
         </div>
-        <Dialog open={this.state.createDailog} maxWidth="xl" maxHeight="xl">
-          <CreateDialog></CreateDialog>
-          <DialogActions>
-            <Button
-              autoFocus
-              onClick={() => {
-                if (
-                  !window.confirm(
-                    "Are you sure to leave, all the changes will be lost?"
-                  )
-                )
-                  return;
-                this.handleCloseCreate();
-              }}
-            >
-              Cancel
-            </Button>
-          </DialogActions>
-        </Dialog>
+        <CreateDialog
+          open={this.state.createDailog}
+          close={this.handleCloseCreate}
+        ></CreateDialog>
         <Snackbar open={this.state.deleteCheck} autoHideDuration={3000}>
           <Alert severity="info" sx={{ width: "100%" }}>
             Project is a deleted successfully !
@@ -111,8 +93,10 @@ class AllCardSection extends Component {
                 <Link to={`/project/${res._id}`} className="every linkClass">
                   <button className="btndash">View</button>
                 </Link>
-                <Link to={"/edit/" + res._id} className="every linkClass">
-                  <button className="btndash">Edit</button>
+                <Link to={`/edit/${res._id}`} className="every linkClass">
+                  <button className="btndash" onClick={this.handleOpenEdit}>
+                    Edit
+                  </button>
                 </Link>
                 <button
                   onClick={() => this.handleDelete(res._id)}
